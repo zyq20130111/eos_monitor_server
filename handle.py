@@ -25,10 +25,14 @@ class Handle(object):
            cursor = db.cursor()
            cursor.execute(sql)
 
-           result = ""
+           for field_desc in cursor.description:
+               print field_desc[0]
+
+           result = '{'
            for row in cursor.fetchall():
                result = result + "," + str(row[0])
           
+           result = result + '}'
            return result
 
            cursor.close()
