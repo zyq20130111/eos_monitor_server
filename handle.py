@@ -30,13 +30,13 @@ class Handle(object):
                list.append(field_desc[0])
 
 	   index_row = 0
-           index_col = 0
            result = '{['
 
            for row in cursor.fetchall(): 
 
                #处理一行
                col_s = "{"
+               index_col = 0
 
                for col in list:
                   
