@@ -37,6 +37,9 @@ class Handle(object):
                
                if (index < cursor.rowcount - 1):
                   result = result + ","
+
+	       print(list[index])
+
                index = index + 1
 
            result = result + '}'
