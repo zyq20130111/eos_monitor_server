@@ -29,23 +29,37 @@ class Handle(object):
            for field_desc in cursor.description:
                list.append(field_desc[0])
 
-	   index = 0
-           result = '{'
+	   index_row = 0
+           index_col = 0
+           result = '{['
 
            for row in cursor.fetchall(): 
-               result = result + '"' + list[index] + '":' + str(row[0])
-               
-               if (index < cursor.rowcount - 1):
-                  result = result + ","
 
-	       print(list[index])
+               #处理一行
+               col_s = "{"
 
-               index = index + 1
+               for col in list:
+                  
+                  col_s = col_s + '"' + list[index] + '":' + str(row[0])
+ 
+                  if (index_col < cursor.rowcount - 1):
+                      col_s = col_s + ","
+                  else:
+                      col_s = col_s + "}"
 
-           result = result + '}'
-           return result
+                  index_col = index_col + 1
+ 	
+               if(index_row < cursor.rowcount -1):
+                  result = result + col_s + ","
+ 
+               index_row = index_row + 1  
+
+           result = result + ']}'
 
            cursor.close()
-           db.close() 
+           db.close()
+
+           return result
+ 
        except Exception, Argument:
             return Argument
