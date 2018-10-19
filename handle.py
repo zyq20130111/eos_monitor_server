@@ -38,6 +38,7 @@ class Handle(object):
 
            cursor.fetchall()
 	   count = cursor.rowcount
+           print count
 
            for row in cursor.fetchall(): 
 
