@@ -3,7 +3,7 @@
 import hashlib
 import web
 import MySQLdb
-import Config from config
+from config import Config
 
 class Handle(object):
     def GET(self):
