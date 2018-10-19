@@ -40,7 +40,7 @@ class Handle(object):
 
                for col in list:
                   
-                  col_s = col_s + '"' + list[index] + '":' + str(row[0])
+                  col_s = col_s + '"' + list[index_col] + '":' + str(row[0])
  
                   if (index_col < cursor.rowcount - 1):
                       col_s = col_s + ","
