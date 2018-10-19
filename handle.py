@@ -15,10 +15,14 @@ class Handle(object):
 
            sql = data.sql
            if sql.strip()=='':
-               return "sql is null"
+               return "need sql param"
 
-           inj_str = "'|and|exec|insert|select|delete|update|count|*|%|chr|mid|master|truncate|char|declare|;|or|-|+|,|drop"
+           inj_str = "exec|insert|delete|update|master|truncate|declare|drop"
            inj_stra = inj_str.split("|")
+
+           for word in inj_stra:
+               if(sql.contains(word.lower() or sql.contains(word.upper()) ):
+                   return "Illegal statement" 
      
             
            db = MySQLdb.connect(Config.DB_SERVER, Config.DB_USER, Config.DB_PWD, Config.DB_NAME, charset='utf8' )
