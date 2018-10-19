@@ -25,14 +25,15 @@ class Handle(object):
            cursor = db.cursor()
            cursor.execute(sql)
 
+           list = [] 
            for field_desc in cursor.description:
-               print field_desc[0]
+               list.append(field_desc[0])
 
 	   index = 0
            result = '{'
 
            for row in cursor.fetchall(): 
-               result = result + '"' + field_desc[index] + '":' + str(row[0])
+               result = result + '"' + list[index] + '":' + str(row[0])
                
                if (index < cursor.rowcount - 1):
                   result = result + ","
