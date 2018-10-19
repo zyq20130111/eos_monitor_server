@@ -36,6 +36,9 @@ class Handle(object):
 	   index_row = 0
            result = '{['
 
+           cursor.fetchall()
+	   count = cursor.rowcount
+
            for row in cursor.fetchall(): 
 
                #处理一行
@@ -53,7 +56,7 @@ class Handle(object):
 
                   index_col = index_col + 1
  	
-               if(index_row < cursor.rowcount -1):
+               if(index_row < (count - 1)):
                   result = result + col_s + ","
  
                index_row = index_row + 1  
