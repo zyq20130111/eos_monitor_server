@@ -21,7 +21,7 @@ class Handle(object):
            inj_stra = inj_str.split("|")
 
            for word in inj_stra:
-               if(sql.contains(word.lower() or sql.contains(word.upper()) ):
+               if(sql.contains(word.lower()) or sql.contains(word.upper()) ):
                    return "Illegal statement" 
      
             
