@@ -56,7 +56,7 @@ class Handle(object):
                       col_s = col_s + "}"
 
                   index_col = index_col + 1
- 	
+               print index_row 	
                if(index_row < (count - 1)):
                   result = result + col_s + ","
  
